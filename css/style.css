@@ -1,0 +1,121 @@
+/* ------------------------------------------- */
+/* 1. Estilos del Video de Fondo y Contenido   */
+/* ------------------------------------------- */
+
+#video-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;   
+    height: 100vh;  
+    object-fit: cover; 
+    z-index: -100; /* Asegura que el video siempre esté al fondo */
+    /* Requisito: Degradado o transparencia al 60% (Opacidad 0.4 para dejar pasar el 40% del color) */
+    opacity: 0.4; 
+}
+
+#contenido-principal {
+    position: relative;
+    z-index: 1; 
+    /* IMPORTANTE: Genera la altura de 4 páginas (400vh) para que haya scroll*/
+    min-height: 400vh; 
+    color: white; 
+    background: rgba(0, 0, 0, 0.1); 
+}
+
+/* ------------------------------------------- */
+/* 2. Estilos del Título Principal             */
+/* ------------------------------------------- */
+
+#titulo-principal {
+    /* Requisito: Font Size: 80px */
+    font-size: 80px;
+    text-align: center; /* Requisito: Text align center */
+    font-family: 'Impact', sans-serif; /* Placeholder para "Fortalesia Script" */
+    
+    /* Color Hex Code (ej. para el rayo/chakra de Sasuke) */
+    color: #00BFFF; 
+    
+    /* Sombra para mejorar la visibilidad sobre el fondo dinámico */
+    text-shadow: 0 0 15px rgba(0, 0, 0, 1), 0 0 25px rgba(0, 0, 255, 0.5);
+}
+
+/* ------------------------------------------- */
+/* 3. Estilos del Carrusel Esférico            */
+/* ------------------------------------------- */
+
+.carrusel-esferico-custom {
+    width: 450px; 
+    height: 450px; 
+    /* Requisito: Formato esférico */
+    border-radius: 50%; 
+    /* VITAL: Recorta cualquier contenido que se salga del círculo */
+    overflow: hidden; 
+    position: relative; 
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+/* CORRECCIÓN: Asegura que el contenido interno de Bootstrap sea también circular */
+.carrusel-esferico-custom .carousel-inner,
+.carrusel-esferico-custom .carousel-item {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+}
+
+/* Requisito: Degradado del 70% semi-transparente por encima de la imagen */
+.carrusel-esferico-custom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; 
+    
+    /* Degradado del 70% de Negro (0.7 opacidad) */
+    background: linear-gradient(
+        180deg, 
+        rgba(0, 0, 0, 0.7) 0%, 
+        rgba(0, 0, 0, 0.2) 50%, 
+        rgba(0, 0, 0, 0.7) 100% 
+    );
+    border-radius: 50%; 
+    pointer-events: none; /* Permite usar los controles del carrusel bajo el degradado */
+}
+
+/* Ajuste de las imágenes (Recortar y llenar el círculo) */
+.carrusel-esferico-custom .carousel-item img {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover; 
+}
+
+/* ------------------------------------------- */
+/* 4. Estilos del Texto de Cuartilla           */
+/* ------------------------------------------- */
+
+#texto-cuartilla {
+    /* Requisito: Font Size: 20px */
+    font-size: 20px;
+    
+    /* Requisito: Font: Retro British (simulado con Playfair Display) */
+    font-family: 'Playfair Display', serif; 
+    
+    line-height: 1.8;
+    background-color: rgba(0, 0, 0, 0.75); /* Fondo para legibilidad */
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    color: #F8F8F8;
+}
+
+/* ------------------------------------------- */
+/* 5. Estilos de la Paginación Fija            */
+/* ------------------------------------------- */
+
+.fixed-bottom {
+    font-size: 1.2rem;
+    padding: 1rem !important;
+    background-color: rgba(0, 0, 0, 0.8) !important; 
+    color: #FFC107; /* Color de acento */
+}

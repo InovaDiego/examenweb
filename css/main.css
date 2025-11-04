@@ -1,17 +1,3 @@
 /* =====================
    PALETA DE COLORES
 ===================== */
-:root {
-    --primary-color: #1E1B29;
-    --secondary-color: #8E44AD;
-    --accent-color: #00FFE0;
-    --text-dark: #F1F1F1;
-    --text-light: #A0A0A0;
-    --bg-light: #2A2A40;
-    --verde: #55F229;
-    --amarillo: #F2EF29;
-    --naranja: #FAB24B;
-    --turquesa: #4BFADD;
-    --bg-white: #ffffff;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
