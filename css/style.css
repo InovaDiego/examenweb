@@ -119,3 +119,25 @@
     background-color: rgba(0, 0, 0, 0.8) !important; 
     color: #FFC107; /* Color de acento */
 }
+/* ------------------------------------------- */
+/* 6. Estilos del Botón de Navegación a la Revista */
+/* ------------------------------------------- */
+
+.boton-revista {
+    /* Color de acento de Sasuke/Chakra (el mismo que usaste en el título) */
+    background-color: #00BFFF; 
+    border-color: #00BFFF;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    
+    /* Sombra para darle profundidad y hacerlo destacar */
+    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4); 
+    transition: all 0.3s ease;
+}
+
+.boton-revista:hover {
+    background-color: #0099cc; /* Un tono un poco más oscuro al pasar el mouse */
+    border-color: #0099cc;
+    /* Efecto de 'pop' */
+    transform: scale(1.05); 
+}

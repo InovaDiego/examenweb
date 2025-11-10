@@ -1,12 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializa el carrusel de Bootstrap
+    // ----------------------------------------------------
+    // LÓGICA DE ANIMACIÓN: Carrusel de Bootstrap
+    // ----------------------------------------------------
+    
+    // Captura el elemento del carrusel por su ID
     const carrusel = document.getElementById('carrusel-contenedor');
+    
     if (carrusel) {
-        // Inicializa el carrusel y lo configura para que cambie cada 5 segundos (5000ms)
+        // Inicializa el carrusel de Bootstrap
+        // El requisito es que tenga reproducción automática (intervalo).
         const bsCarousel = new bootstrap.Carousel(carrusel, {
-            interval: 5000, 
-            wrap: true // Para que siga dando vueltas
+            interval: 2000, // Cambia la imagen cada 2 segundos (2000ms)
+            pause: 'hover', // Se detiene al pasar el mouse (buena práctica de UX)
+            wrap: true      // Continúa el ciclo después de la última imagen
         });
-        console.log('Animación JS: Carrusel iniciado automáticamente.');
+        console.log('Animación JS: Carrusel iniciado en modo automático.');
     }
 });

@@ -1,0 +1,92 @@
+#flipbook-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 50px 0;
+    background-color: #333; /* Fondo oscuro para contrastar con las páginas */
+    color: white;
+}
+
+#flipbook {
+    position: relative;
+    width: 600px; /* Ancho del libro */
+    height: 800px; /* Alto del libro */
+    perspective: 1500px; /* Define la perspectiva 3D para la animación de giro */
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: left center; /* Punto de giro en el borde izquierdo */
+    transition: transform 0.8s ease-in-out; /* Velocidad de la animación de giro */
+    
+    /* Estilo de la página */
+    background-color: #F8F8F8;
+    color: #333;
+    border: 1px solid #AAA;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Valor base */
+}
+
+.page-content {
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estado de la página cuando ya fue pasada (girada) */
+.page.flipped {
+    transform: rotateY(-180deg);
+    z-index: 100; /* Asegura que la página girando esté por encima */
+}
+
+/* Ajustes para las páginas impares (Lado derecho de la revista) */
+/* Inicialmente, todas las páginas están en el lado derecho */
+#page-1 { z-index: 7; } /* Portada (La capa más alta al inicio) */
+#page-2 { z-index: 6; }
+#page-3 { z-index: 5; }
+#page-4 { z-index: 4; }
+#page-5 { z-index: 3; }
+#page-6 { z-index: 2; }
+#page-7 { z-index: 1; } /* Última página (La capa más baja) */
+
+/* Estilos de los controles */
+#flipbook-controls button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #00BFFF; /* Color de acento de Sasuke/Chakra */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#flipbook-controls button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+/* Estilos del botón "Volver al Inicio" */
+.back-to-home {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    background-color: #6c757d; /* Gris de Bootstrap */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+}
+
+.back-to-home:hover {
+    background-color: #5a6268;
+}
+/* Estilos para videos de YouTube incrustados */
+.page-content iframe {
+    border-radius: 8px; /* Bordes redondeados para iframes */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
