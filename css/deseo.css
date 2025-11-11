@@ -1,0 +1,83 @@
+/* Estilos generales */
+.main-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* 1. Contenedor de las dos columnas (Flexbox) */
+.content-wrapper {
+    display: flex;
+    gap: 30px; /* Espacio entre las columnas */
+    margin-bottom: 50px;
+}
+
+/* Estilo común para ambas columnas */
+.col-left, .col-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. Estilo de los Encabezados (Deseo y Título de Imágenes) */
+.col-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.col-header h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.db-info {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 3. Estilo del cuerpo (las cajas grandes) */
+.col-body {
+    flex-grow: 1; /* Hace que se estiren para tener la misma altura */
+    border: 1px solid black;
+    min-height: 500px; /* Altura mínima para que se vean grandes */
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+/* 4. Área de Cuartilla Inferior */
+.cuartilla-box {
+    border: 1px solid black;
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 20px;
+    min-height: 150px;
+    text-align: center;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cuartilla-box p {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.cuartilla-box .font-style-info {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 14px;
+    color: #999;
+}
+
+/* Aseguramos que el botón de regreso funcione */
+.back-to-home {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    /* (Puedes copiar aquí el resto de los estilos del botón si no está en style.css) */
+}

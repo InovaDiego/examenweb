@@ -169,6 +169,7 @@
 }
 
 /* 🟢 Nueva regla: Estilo para la parte de atrás de la hoja */
+/* Nueva regla: Estilo para la parte de atrás de la hoja (REVERSO) */
 .page:after {
     content: "";
     position: absolute;
@@ -177,8 +178,8 @@
     width: 100%;
     height: 100%;
     
-    /* La cara de atrás es el reverso del papel, típicamente en blanco o un gris sutil */
-    background-color: #f1f1f1; 
+    /* 🟢 CORRECCIÓN CLAVE: Hacemos el reverso transparente. */
+    background-color: transparent; 
     
     /* Aplicar la misma rotación para que se muestre del lado correcto */
     transform: rotateY(180deg);
@@ -186,6 +187,6 @@
     /* Asegurar que la cara trasera también esté oculta cuando no gira */
     backface-visibility: hidden;
     
-    /* Sombra interna para dar profundidad */
+    /* Mantenemos la sombra sutil */
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); 
 }
