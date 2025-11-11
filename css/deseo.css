@@ -81,3 +81,56 @@
     z-index: 1000;
     /* (Puedes copiar aquí el resto de los estilos del botón si no está en style.css) */
 }
+/* Estilos para el contenido generado por JS */
+.deseo-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.deseo-item:last-child {
+    border-bottom: none;
+}
+
+.deseo-item input[type="checkbox"] {
+    margin-right: 15px;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+/* Estilos de las imágenes */
+#imagenes-regalo-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+}
+
+.imagen-item {
+    width: 45%; /* Para tener dos columnas de imágenes */
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.imagen-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+.imagen-item img {
+    /* ASEGÚRATE DE QUE ESTO ESTÉ PRESENTE */
+    max-width: 100%; 
+    height: auto;
+}
+
+.col-body {
+    /* ASEGÚRATE DE QUE TENGA UN TAMAÑO VISIBLE */
+    min-height: 500px; 
+    overflow: auto; /* IMPORTANTE: Para ver si las imágenes se desbordan */
+}
