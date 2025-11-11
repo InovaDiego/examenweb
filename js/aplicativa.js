@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         
         // 2. SINCRONIZACIÓN DEL VIDEO (Reproducción en base al scroll del mouse)
-        // Se usa isFinite() para asegurar que la duración es un número válido y no NaN
+        // Usamos isFinite() para evitar el error 'non-finite'
         if (video.duration && isFinite(video.duration)) {
             video.currentTime = video.duration * scrollPercentage;
         }
@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // MANEJO DE EVENTOS (Activación)
     
-    // Usamos 'canplay' para asegurar que la duración ya está disponible (solución al 'non-finite' error)
-    video.addEventListener('canplay', () => {
+    // 🟢 CORRECCIÓN: Nombramos la función (handleCanPlay) para evitar el error 'arguments is not defined'
+    const handleCanPlay = () => {
         
         // El video debe estar en modo play() (incluso muted) para que currentTime funcione
         video.play().catch(error => {
@@ -50,9 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         syncAllToScroll(); 
         
-        // Quitamos el listener para evitar llamadas redundantes
-        video.removeEventListener('canplay', arguments.callee);
-    });
+        // Usamos el nombre de la función (handleCanPlay) para quitar el listener
+        video.removeEventListener('canplay', handleCanPlay);
+    };
+
+    // Adjuntamos el listener con la función nombrada
+    video.addEventListener('canplay', handleCanPlay);
     
     // Escucha el evento de scroll y lo optimiza con requestAnimationFrame
     window.addEventListener('scroll', () => {
@@ -60,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Carga inicial: Si el video ya tiene duración al inicio, se sincroniza. 
-    // Si no, forzamos la carga.
+    // Si no, forzamos la carga para activar 'canplay'.
     if (video.duration && isFinite(video.duration)) {
         syncAllToScroll();
     } else {

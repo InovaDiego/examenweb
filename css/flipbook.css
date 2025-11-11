@@ -4,8 +4,18 @@
     align-items: center;
     min-height: 100vh;
     padding: 50px 0;
-    background-color: #333; /* Fondo oscuro para contrastar con las páginas */
-    color: white;
+    
+    /* 🟢 IMPLEMENTACIÓN DE IMAGEN DE FONDO */
+    background-image: url('../IMAGENES/fondorev.webp');
+    background-size: cover; /* Cubre todo el contenedor sin estirarse */
+    background-position: center center; /* Centra la imagen */
+    background-attachment: fixed; /* Mantiene la imagen fija si hay scroll */
+    
+    color: #f8f8f8; /* Cambiamos el color de texto a claro para la portada y títulos */
+    
+    /* Opcional: Oscurece ligeramente la imagen para que la revista blanca destaque */
+    background-color: rgba(0, 0, 0, 0.4); 
+    background-blend-mode: multiply; 
 }
 
 #flipbook {
@@ -89,4 +99,93 @@
 .page-content iframe {
     border-radius: 8px; /* Bordes redondeados para iframes */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* 1. Refinar la apariencia del papel */
+.page {
+    /* Mantener propiedades de posición y transformación */
+    /* ... */
+    
+    /* Cambiar el fondo del papel */
+    background-color: #FAFAFA; /* Un blanco roto, más suave */
+    color: #2c3e50; /* Color de texto oscuro, casi negro */
+    
+    /* Sombra interna para simular el grosor del papel */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); 
+    
+    /* Nuevo: Añadir un borde sutil */
+    border: 1px solid #E0E0E0; 
+}
+
+/* 2. Mejorar el contenido de la página */
+.page-content {
+    padding: 30px 40px; /* Más espacio a los lados */
+    font-family: 'Georgia', serif; /* Fuente clásica para texto de revista */
+    line-height: 1.6; /* Mayor espacio entre líneas para facilitar la lectura */
+}
+
+/* 3. Estilo para Títulos */
+.page-content h2, .page-content h3 {
+    font-family: 'Impact', sans-serif; /* Usamos una fuente fuerte y en mayúsculas */
+    text-transform: uppercase;
+    color: #4A148C; /* Color temático (Púrpura/Chakra oscuro) */
+    border-bottom: 2px solid #9C27B0; /* Línea de separación */
+    padding-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+/* 4. Estilo de los Contenedores de Video (Mejora visual) */
+.page-content div[style*="aspect-ratio: 16 / 9"] {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+    
+    /* Añadir un borde temático */
+    border: 5px solid #00BFFF; /* Borde de color Chakra azul/cian */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    overflow: hidden;
+}
+
+/* Opcional: Si quieres un efecto de degradado en la página */
+.page:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(0,0,0,0.05) 100%);
+    pointer-events: none;
+}
+.page {
+    /* ... propiedades existentes ... */
+    
+    /* 🟢 CORRECCIÓN CRÍTICA: Oculta la parte trasera de las páginas. */
+    backface-visibility: hidden; 
+    
+    /* Añadimos un sombreado sutil al girar */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Valor base de apilamiento */
+}
+
+/* 🟢 Nueva regla: Estilo para la parte de atrás de la hoja */
+.page:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* La cara de atrás es el reverso del papel, típicamente en blanco o un gris sutil */
+    background-color: #f1f1f1; 
+    
+    /* Aplicar la misma rotación para que se muestre del lado correcto */
+    transform: rotateY(180deg);
+    
+    /* Asegurar que la cara trasera también esté oculta cuando no gira */
+    backface-visibility: hidden;
+    
+    /* Sombra interna para dar profundidad */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); 
 }
